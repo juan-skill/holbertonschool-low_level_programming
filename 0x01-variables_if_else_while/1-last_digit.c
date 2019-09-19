@@ -9,20 +9,17 @@
  */
 int main(void)
 {
-	int n, m;
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	/* your code goes there */
-	m = n;
-	n = n % 10;
 
-	printf("Last digit of %i is %i ", m, n);
-	if (n > 5)
+	printf("Last digit of %i is %i ", n, (n % 10));
+	if ((n % 10) > 5)
 		printf("and is greater than 5\n");
-	else if (n == 0)
+	else if ((n % 10) == 0)
 		printf("and is 0\n");
-	else if (n < 6 && n != 0)
+	else if ((n % 10) < 6 && (n % 10) != 0)
 		printf("and is less 6 and not 0\n");
 
 	return (0);
