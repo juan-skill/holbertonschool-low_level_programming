@@ -1,1 +1,1 @@
-comments”, “I try to practice basic concepts : Data types | Integer types”, “Declaration”, “Characters”, “Arithmetic operators”, “Variables assignments”, “Comparisons”, “Logical operators”, “if, if…else”, “while loops”.)
+Here we knows about all in C
