@@ -16,12 +16,13 @@ int main(void)
 	m = n;
 	n %= 10;
 
+	printf("Last digit of %d is %d ", m, n);
 	if (n > 5)
-		printf("Last digit of %d is %d and is greater than 5\n", m, n);
-	else if (n == 0)
-		printf("Last digit of %d is %d and is 0\n", m, n);
+		printf("and is greater than 5\n");
 	else if (n < 6 && n != 0)
-		printf("Last digit of %d is %d and is less 6 and not 0\n", m, n);
+		printf("and is less 6 and not 0\n");
+	else if (n == 0)
+		printf("and is 0")
 
 	return (0);
 }
