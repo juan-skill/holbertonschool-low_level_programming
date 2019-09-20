@@ -1,16 +1,16 @@
 #include <stdio.h>
-
+/* betty style doc for function main goes there */
 /**
-* main - display all digits in base 10 numbers
-* 
+* main - display all numbers 0-9
+*
 * Return: Always 0 (Success)
 */
 int main(void)
 {
-int n = '0';
-while (n <= '9')
+int num;
+for (num = 48; num < 58; num++)
 {
-putchar(n++);
+putchar(num);
 }
 putchar('\n');
 return (0);
