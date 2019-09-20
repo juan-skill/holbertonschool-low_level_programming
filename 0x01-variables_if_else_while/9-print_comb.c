@@ -1,15 +1,15 @@
 #include <stdio.h>
 /**
-* main - prints all possible 
-* combinations of single-digit numbers.*
+* main - display number and show if option
+*
 * Return: Always 0 (Success)
 */
 int main(void)
 {
-int n;
-for (n = 48; n < 58; n++)
+int num;
+for (num = 48; num < 58; num++)
 {
-putchar(n);
+putchar(num);
 if (num == 57)
 {
 putchar('\n');
