@@ -15,7 +15,8 @@ int main(void)
 	{
 		y = y + x;
 		x = y - x;
-		printf("%ld ", y);
+
+		printf("%ld, ", y);
 	}
 
 	return (0);
