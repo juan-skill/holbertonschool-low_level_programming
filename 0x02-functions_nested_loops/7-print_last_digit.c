@@ -24,8 +24,8 @@ int print_last_digit(int n)
 {
 	int last;
 
-	last = _absolute(n);
-	last %= 10;
+	last = n % 10;
+	last = _absolute(last);
 	_putchar(last + '0');
 
 	return (last);
