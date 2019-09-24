@@ -2,18 +2,17 @@
 #include <stdio.h>
 
 /**
- * _abs - returns the absolute value of number
+ * _absolute - returns the absolute value of number
  *
  * @n: int to get absolute value
  * Return: absolute value
  */
-int _abs(int n)
+int _absolute(int n)
 {
-	int mask;
-
-	mask = n >> (sizeof(int) * 8 - 1);
-
-	return ((n + mask) ^ mask);
+	if (n <= 0)
+		return (n * (-1));
+	else
+		return (n);
 
 }
 
@@ -28,48 +27,44 @@ void _add_special_char(int n)
 {
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 	}
 	if (n == 98)
 	{
-		_putchar(n / 10 + '0');
-		_putchar(n % 10 + '0');
-		_putchar('\n');
+		putchar(n / 10 + '0');
+		putchar(n % 10 + '0');
+		putchar('\n');
 	}
 	if (n == -98)
 	{
-		_putchar(98 / 10 + '0');
-		_putchar(98 % 10 + '0');
-		_putchar(',');
-		_putchar(' ');
+		putchar(98 / 10 + '0');
+		putchar(98 % 10 + '0');
+		putchar(',');
+		putchar(' ');
 	}
 	if (n <= 0)
-		n = _abs(n);
+		n = _absolute(n);
 	if (n < 10)
 	{
-		_putchar(n + '0');
-		_putchar(',');
-		_putchar(' ');
+		putchar(n + '0');
+		putchar(',');
+		putchar(' ');
 	}
 	else if (n >= 10 && n != 98 && n < 100)
 	{
-		_putchar((n / 10) + '0');
-		_putchar((n % 10) + '0');
-		_putchar(',');
-		_putchar(' ');
+		putchar((n / 10) + '0');
+		putchar((n % 10) + '0');
+		putchar(',');
+		putchar(' ');
 	}
 	else if (n >= 100)
 	{
-		_putchar(n / 100 + '0');
-		_putchar(n / 10 % 10 + '0');
-		_putchar(n % 10 + '0');
-		_putchar(',');
-		_putchar(' ');
+		putchar(n / 100 + '0');
+		putchar(n / 10 % 10 + '0');
+		putchar(n % 10 + '0');
+		putchar(',');
+		putchar(' ');
 	}
-
-
-	return;
-
 }
 
 
