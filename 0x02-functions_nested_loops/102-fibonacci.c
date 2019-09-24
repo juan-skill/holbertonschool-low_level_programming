@@ -8,15 +8,18 @@
  */
 int main(void)
 {
-	int i, n = 50;
+	int i, n = 51;
 	long x = 0, y = 1;
 
-	for (i = 2; i < n; i++)
+	printf("1");
+	for (i = 3; i < n; i++)
 	{
 		y = y + x;
 		x = y - x;
 
-		printf("%ld, ", y);
+		if (!(y == 1))
+			printf(", %ld", y);
+
 	}
 
 	return (0);
