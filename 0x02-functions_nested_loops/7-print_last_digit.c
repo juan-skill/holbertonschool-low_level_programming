@@ -4,7 +4,7 @@
  * _abs - returns the absolute value of number
  *
  * @n: int to get absolute value
- * Return: absolute value
+ * Return: absolute value any number
  */
 int _abs(int n)
 {
@@ -25,7 +25,7 @@ int print_last_digit(int n)
 	int last;
 
 	last = _abs(n);
-	last = last % 10;
+	last %= 10;
 	_putchar(last + '0');
 
 	return (last);
