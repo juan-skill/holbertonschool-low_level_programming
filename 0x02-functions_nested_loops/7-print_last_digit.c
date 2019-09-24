@@ -1,5 +1,5 @@
 #include "holberton.h"
-fsfsdfs
+
 /**
  * _abs - returns the absolute value of number
  *
