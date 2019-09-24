@@ -8,11 +8,10 @@
  */
 int _abs(int n)
 {
-	int mask;
-
-	mask = n >> (sizeof(int) * 8 - 1);
-
-	return ((n + mask) ^ mask);
+	if (n <= 0)
+		return (n - (n * 2));
+	else
+		return (n);
 
 }
 
