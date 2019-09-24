@@ -8,23 +8,21 @@
  */
 void add_char_especial(int num)
 {
-	int n1, n2;
-
 	if (num < 10)
 	{
 		_putchar(44);
+		_putchar(' ');
 		_putchar(' ');
 		_putchar(' ');
 		_putchar(num + '0');
 	}
 	else if (num >= 10 && num < 100)
 	{
-		n1 = num / 10;
-		n2 = num % 10;
 		_putchar(44);
 		_putchar(' ');
-		_putchar(n1 + '0');
-		_putchar(n2 + '0');
+		_putchar(' ');
+		_putchar(num / 10 + '0');
+		_putchar(num % 10 + '0');
 	}
 	else
 	{
