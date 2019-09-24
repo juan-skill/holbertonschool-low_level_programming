@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+fsfsdfs
 /**
  * _abs - returns the absolute value of number
  *
@@ -9,7 +9,7 @@
 int _abs(int n)
 {
 	if (n <= 0)
-		return (n - (n * 2));
+		return (n * (-1));
 	else
 		return (n);
 }
