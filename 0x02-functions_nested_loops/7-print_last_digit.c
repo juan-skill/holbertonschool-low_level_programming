@@ -24,10 +24,8 @@ int print_last_digit(int n)
 {
 	int last;
 
-	if(n < 0)
-		last = _abs(n);
-	else if (n == 0 || n > 0)
-		last = last % 10;
+	last = _abs(n);
+	last = last % 10;
 	_putchar(last + '0');
 
 	return (last);
