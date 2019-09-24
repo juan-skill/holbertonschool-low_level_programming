@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * main - prints the alphabet 'a' - 'z'
+ * print_alphabet - prints the alphabet 'a' - 'z'
  *
  * Return: 0 Always (Success)
  */
@@ -9,11 +9,11 @@ void print_alphabet(void)
 {
 	int c;
 
-	for(c = 'a'; c <= 'z'; c++)
+	c = 'a';
+	while (c <= 'z')
 	{
 		_putchar(c);
+		c++;
 	}
 	_putchar('\n');
-
-	return;
 }
