@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - omputes and prints the sum of all the multiples of 3 or 5 below 1024
+ * main - prints the sum of all the multiples of 3 or 5 below 1024
  *
  * Return: 0 Always (Success)
  */
 int main(void)
 {
-	int n, count;
+	int n, count = 0;
 
 	for (n = 0; n < 1024; n++)
 	{
@@ -16,7 +16,7 @@ int main(void)
 		else if (n % 5 == 0)
 			count = count + n;
 	}
-	printf("%d", count);
+	printf("%d\n", count);
 
 	return (0);
 
