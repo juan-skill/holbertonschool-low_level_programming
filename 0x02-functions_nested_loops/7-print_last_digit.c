@@ -8,7 +8,7 @@
  */
 int _abs(int n)
 {
-	if (n <= 0)
+	if (n < 0)
 		return (n * (-1));
 	else
 		return (n);
@@ -27,5 +27,6 @@ int print_last_digit(int n)
 	last = _abs(n);
 	last = last % 10;
 	_putchar(last + '0');
+
 	return (last);
 }
