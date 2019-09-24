@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * _abs - returns the absolute value of number
+ * _absolute - returns the absolute value of number
  *
  * @n: int to get absolute value
  * Return: absolute value any number
  */
-int _abs(int n)
+int _absolute(int n)
 {
 	if (n < 0)
 		return (n * (-1));
@@ -24,7 +24,7 @@ int print_last_digit(int n)
 {
 	int last;
 
-	last = _abs(n);
+	last = _absolute(n);
 	last %= 10;
 	_putchar(last + '0');
 
