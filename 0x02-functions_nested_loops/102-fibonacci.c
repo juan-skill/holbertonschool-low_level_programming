@@ -8,19 +8,21 @@
  */
 int main(void)
 {
-	int i, n = 52;
-	long x = 0, y = 1;
+	long i, num1, num2, num3;
 
-	printf("1");
-	for (i = 2; i < n; i++)
+	num3 = 3;
+	num1 = 1;
+	num2 = 2;
+
+	printf("1, 2, ");
+	for (i = 0; i < 47; i++)
 	{
-		y = y + x;
-		x = y - x;
-
-		if (!(y == 1))
-			printf(", %ld", y);
-
+		printf("%ld, ", num3);
+		num1 = num2;
+		num2 = num3;
+		num3 = num1 + num2;
 	}
+	printf("%ld\n", f);
 
 	return (0);
 }
