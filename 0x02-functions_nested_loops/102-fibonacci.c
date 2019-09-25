@@ -8,11 +8,11 @@
  */
 int main(void)
 {
-	int i, n = 51;
+	int i, n = 52;
 	long x = 0, y = 1;
 
 	printf("1");
-	for (i = 3; i < n; i++)
+	for (i = 2; i < n; i++)
 	{
 		y = y + x;
 		x = y - x;
