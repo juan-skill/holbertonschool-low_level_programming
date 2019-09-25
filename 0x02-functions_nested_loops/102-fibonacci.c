@@ -21,7 +21,6 @@ int main(void)
 		num2 = num3;
 		num3 = num1 + num2;
 	}
-	printf("%ld\n", f);
 
 	return (0);
 }
