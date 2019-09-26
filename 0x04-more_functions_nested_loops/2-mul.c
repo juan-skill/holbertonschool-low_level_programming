@@ -5,7 +5,7 @@
  *
  * @a: one number
  * @b: two number
- * Return: result of multiplicatioxcn
+ * Return: result of multiplication
  */
 int mul(int a, int b)
 {
