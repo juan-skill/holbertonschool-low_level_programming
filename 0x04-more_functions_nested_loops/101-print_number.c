@@ -7,40 +7,18 @@
  */
 void print_number(int n)
 {
-	int pow_ten, num, new_num;
-	int boolean_value;
+	unsigned int num;
 
-	num = n;
-	if (num < 0)
+	if (n < 0)
 	{
-		num = num * (-1);
 		_putchar('-');
+		num = -n;
 	}
+	else
+		num = n;
 
-	pow_ten = 1;
-	boolean_value = 1;
-	while (boolean_value)
-	{
-		new_num = num / (pow_ten * 10);
-		if (new_num > 0)
-			pow_ten = pow_ten * 10;
-		else
-			boolean_value = 0;
-	}
+	if (num / 10)
+		print_number(num / 10);
+	_putchar(num % 10 + '0');
 
-
-	while (num >= 0)
-	{
-		if (pow_ten == 1)
-		{
-			_putchar(num % 10 + '0');
-			num = -1;
-		}
-		else
-		{
-			new_num = (num / pow_ten % 10);
-			_putchar(new_num + '0');
-			pow_ten = pow_ten / 10;
-		}
-	}
 }
