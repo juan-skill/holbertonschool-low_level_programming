@@ -7,9 +7,8 @@
  */
 void print_number(int n)
 {
-	long pow_ten, num, new_num;
-	int c;
-
+	int pow_ten, num, new_num;
+	int boolean_value;
 
 	num = n;
 	if (num < 0)
@@ -19,14 +18,14 @@ void print_number(int n)
 	}
 
 	pow_ten = 1;
-	c = 1;
-	while (c)
+	boolean_value = 1;
+	while (boolean_value)
 	{
 		new_num = num / (pow_ten * 10);
 		if (new_num > 0)
 			pow_ten = pow_ten * 10;
 		else
-			c = 0;
+			boolean_value = 0;
 	}
 
 
