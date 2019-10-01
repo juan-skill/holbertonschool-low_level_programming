@@ -12,7 +12,7 @@
 char *_strcpy(char *dest, char *src)
 {
 	int i;
-	char *return_val;
+	char *copy_p;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -22,7 +22,7 @@ char *_strcpy(char *dest, char *src)
 	}
 	dest[i] = src[i];
 
-	return_val = dest;
+	copy_p = dest;
 
-	return (return_val);
+	return (copy_p);
 }
