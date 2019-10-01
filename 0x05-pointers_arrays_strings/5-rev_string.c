@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strlen - returns the length of a string 
+ * _strlen - returns the length of a string
  *
  * @s: string to check the length
  * Return: returns the length of a string
@@ -19,7 +19,7 @@ int _strlen(char *s)
 
 
 /**
- * rev_string - reverses string in place, 
+ * rev_string - reverses string in place,
  * without printing it
  *
  * @s: string to reverse
@@ -34,8 +34,8 @@ void rev_string(char *s)
 	i = 0;
 	while (i < j)
 	{
-		temp1_c = s[j];
-		s[j] = s[i++];
-		s[i++] = temp;		
+		temp = s[j];
+		s[j--] = s[i];
+		s[i++] = temp;
 	}
 }
