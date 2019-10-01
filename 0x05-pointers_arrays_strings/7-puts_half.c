@@ -3,7 +3,7 @@
 /**
  * _strlen - returns the length of a string *
  *
- * @s: string to check the length 
+ * @s: string to check the length
  * Return: returns the length of a string
  */
 int _strlen(char *s)
@@ -29,9 +29,9 @@ void puts_half(char *str)
 	int i;
 
 	i = _strlen(str);
-	if (i % 2 != 0)
-		i++;
-  
+	/*if (i % 2 != 0)
+	  i++;*/
+
 	i /= 2;
 	while (str[i] != '\0')
 		_putchar(str[i++]);
