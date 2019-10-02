@@ -15,14 +15,14 @@ int _atoi(char *s)
 	int num, i, negative;
 
 	num = 0;
-	neg = -1;
-	for ((i = 0; s[i] < '0' || s[i] > '9') && s[i] != '\0'; i++)
+	negative = -1;
+	for (i = 0; (s[i] < '0' || s[i] > '9') && s[i] != '\0'; i++)
 	{
 		if (s[i] == '-')
-			neg *= -1;
+			negative *= -1;
 	}
 
 	while ((s[i] < '0' || s[i] > '9') && s[i] != '\0')
 		num = (num * 10) - (s[i++] - '0');
-	return (num * neg);
+	return (num * negative);
 }
