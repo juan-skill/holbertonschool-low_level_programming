@@ -34,7 +34,7 @@ char *cap_string(char *str)
 		str[i] -= 32;
 	while (str[i] != '\0')
 	{
-		if (there_isc(str[i] == 1 && (str[i + 1] >= 'a' && str[i + 1] <= 'z')))
+		if (there_isc(str[i]) == 1 && (str[i + 1] >= 'a' && str[i + 1] <= 'z'))
 		{
 			str[i + 1] -= 32;
 		}
