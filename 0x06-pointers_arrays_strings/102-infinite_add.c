@@ -20,7 +20,7 @@ int _strlen(char *str)
 /**
  * _ads_two_digits - returns the adds of two numbers
  *
- * @n1; number one
+ * @n1: number one
  * @n2: number two
  * @n3: number three
  * Return: returns the sum of three
