@@ -44,11 +44,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int i, j, temp, remainder, one, two;
 
 	i = j = temp = remainder = 0;
-	r[size_r - 1] = '\0';
-	size_r = size_r - 2;
-	i = _strlen(n1);
-	j = _strlen(n2);
-
+	r[size_r] = '\0';
+	size_r = size_r - 1;
+	i = _strlen(n1) - 1;
+	j = _strlen(n2) - 1;
 	for (; size_r >= 0 || (i >= 0 && j >= 0); i--, j--)
 	{
 		if (i < 0)
@@ -58,7 +57,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (j < 0)
 			two = '0' - '0';
 		else
-			two = n2[i] - '0';
+			two = n2[j] - '0';
 		temp = _ads_two_digits(one, two, remainder);
 		if (temp < 9 ||  _ads_two_digits(one, two, 0) < 9)
 			remainder = 0;
@@ -67,7 +66,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			remainder = temp / 10;
 			temp %= 10;
 		}
-		r[size_r--] = temp - '0';
+		r[size_r--] = temp + '0';
 	}
 	if ((size_r < i || size_r < j) || (size_r < 0 && temp >= 1))
 		return (0);
@@ -76,7 +75,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	else
 		r[size_r] = 1;
 	size_r = size_r + temp;
-	if (size_r)
+	if (size_r >= 1)
 		size_r = 0;
 	else
 		size_r = 1;
