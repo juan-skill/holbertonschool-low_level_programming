@@ -76,9 +76,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if ((size_r < i || size_r < j) || (size_r < 0 && remainder >= 1))
 		return (0);
 
-	if (size_r + temp  >= 1)
-		temp = 0;
+	if (size_r + remainder >= 1)
+		remainder = 0;
 	else
-		temp = 1;
+		remainder = 1;
 	return (r + size_r);
 }
