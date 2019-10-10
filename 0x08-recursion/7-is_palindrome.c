@@ -14,7 +14,7 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * _is_palindrome - check whether string is palindrome
+ * is_palindrome - check whether string is palindrome
  *
  * @s: string
  * Return: 1 if it is palindrome, 0 if not
@@ -28,6 +28,6 @@ int is_palindrome(char *s)
 	if (s[start] == s[end])
 		return (1);
 	else
-		is_palindrome(++s);
+		return (is_palindrome(s + 1));
 	return (0);
 }
