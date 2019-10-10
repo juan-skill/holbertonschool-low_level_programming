@@ -23,8 +23,8 @@ int _strlen_recursion(char *s)
  */
 int palindrome_check(char *s, int start, int end)
 {
-	if (start == end)
-		return (1);
+	/*if (start == end)
+	  return (1);*/
 	if (s[start] != s[end])
 		return (0);
 	if (start < end + 1)
