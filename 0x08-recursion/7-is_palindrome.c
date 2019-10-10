@@ -14,19 +14,34 @@ int _strlen_recursion(char *s)
 }
 
 /**
+ * palindrome_check - helper function for is_palindrome
+ *
+ * @end: length of string
+ * @start: counter for palindrome
+ * @s: string to check
+ * Return: returns itself if incomplete, or 1 for palindrome, 0 for not
+ */
+int palindrome_check(char *s, int start, int end)
+{
+	if (start == end)
+		return (1);
+	if (s[start] != s[end])
+		return (0);
+	if (start < end + 1)
+		return (palindrome_check(s, start + 1, end - 1));
+	return (1);
+}
+
+/**
  * is_palindrome - check whether string is palindrome
  *
  * @s: string
  * Return: 1 if it is palindrome, 0 if not
  */
-
 int is_palindrome(char *s)
 {
 	int start = 0;
 	int end = (_strlen_recursion(s) - 1);
 
-	if (s[start] == s[end])
-		return (1);
-	is_palindrome(s + 1);
-	return (0);
+	return (palindrome_check(s, start, end));
 }
