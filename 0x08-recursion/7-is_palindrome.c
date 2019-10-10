@@ -28,6 +28,6 @@ int is_palindrome(char *s)
 	if (s[start] == s[end])
 		return (1);
 	else
-		return (is_palindrome(s + 1));
+		is_palindrome(s + 1);
 	return (0);
 }
