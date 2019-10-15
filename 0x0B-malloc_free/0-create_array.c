@@ -1,7 +1,7 @@
 #include "holberton.h"
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 
 /**
  * _memset - fills memory with a constant byte
@@ -39,11 +39,11 @@ char *create_array(unsigned int size, char c)
 	if (size <= 0)
 		return (NULL);
 
-	str = malloc(sizeof(char) * size);
+	str = malloc(sizeof(char) * (int)size);
 	if (str == NULL)
 		return (NULL);
 
-	str = _memset(str, size, c);
+	str = _memset(str, c, size);
 
 	return (str);
 }
