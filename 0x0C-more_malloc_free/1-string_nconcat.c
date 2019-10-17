@@ -19,6 +19,7 @@ int _strlen(char *s)
 	return (len);
 }
 
+
 /**
  * string_nconcat - concatenates two strings
  *
@@ -29,33 +30,31 @@ int _strlen(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr;
 	unsigned int i, j;
+	char *ptr;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	if ((int)n > _strlen(s2))
+	if ((int)n >= _strlen(s2))
 		n = _strlen(s2);
 
-	ptr = malloc(_strlen(s1) + n + 1);
+	ptr = malloc(sizeof(char) * (_strlen(s1) + n + 1));
+
 	if (ptr == NULL)
 		return (NULL);
 
 	i = 0;
 	j = 0;
-	while (s1[i] != '0')
-	{
+	while (s1[i] != '\0')
 		ptr[j++] = s1[i++];
-	}
 
 	i = 0;
 	while (i != n)
-	{
 		ptr[j++] = s2[i++];
-	}
+
 	ptr[j] = '\0';
 
 	return (ptr);
