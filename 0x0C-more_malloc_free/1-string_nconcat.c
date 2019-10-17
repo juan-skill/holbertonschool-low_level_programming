@@ -40,25 +40,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if ((int)n > _strlen(s2))
 		n = _strlen(s2);
 
-	ptr = (char *)malloc(_strlen(s1) + n + 1);
+	ptr = malloc(_strlen(s1) + n + 1);
 	if (ptr == NULL)
 		return (NULL);
 
 	i = 0;
+	j = 0;
 	while (s1[i] != '0')
 	{
-		ptr[i] = s1[i];
-		i++;
+		ptr[j++] = s1[i++];
 	}
 
-	j = 0;
-	while (j != n)
+	i = 0;
+	while (i != n)
 	{
-		ptr[i] = s2[j];
-		i++;
-		j++;
+		ptr[j++] = s2[i++];
 	}
-	ptr[i] = '\0';
+	ptr[j] = '\0';
 
 	return (ptr);
 }
