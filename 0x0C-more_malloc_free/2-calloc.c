@@ -2,6 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * _memset - fills memory with a constant byte
+ *
+ * @s: a pointer to char to fill
+ * @b: a value char to assign it to the buffer
+ * @n: size of the buffer
+ * Return: a pointer to the memory
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	int i;
+
+	i = 0;
+	while (n-- > 0)
+		s[i++] = b;
+
+	return (s);
+}
 
 /**
  *  _calloc - allocates memory for an array
@@ -12,19 +30,16 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i, s;
-	char *ptr;
+	void *ptr;
 
-	if (nmemb <= 0 && size <= 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	ptr = malloc(nmemb * size);
+	ptr = (void *)malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
 
-	s = nmemb * size;
-	for (i = 0; i < s; i++)
-		ptr[i] = 0;
+	_memset(ptr, 0, nmemb * size);
 
 	return (ptr);
 }
