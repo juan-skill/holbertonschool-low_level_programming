@@ -49,7 +49,7 @@ int count_words(char *str)
 }
 
 /**
- * free_grid - frees a 2 dimensional grid
+ * free_gridc - frees a 2 dimensional grid
  * @grid: grid to free
  * @height: height of grid
  * Return: void
