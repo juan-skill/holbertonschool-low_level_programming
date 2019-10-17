@@ -2,10 +2,28 @@
 #include <stdlib.h>
 
 /**
- * count_words - Count the number of words in a string
- * @str: The string
+ * _strlen - returns the length of a string
  *
- * Return: The number of words (any characters separated by spaces)
+ * @s: string type char
+ * Return: returns the lenght of a string
+ */
+int _strlen(char *s)
+{
+	int len;
+
+	len = 0;
+	while (*s++ != '\0')
+		len++;
+
+	return (len);
+}
+
+/**
+ * count_words - counts the number of words in a string
+ *
+ * @str: The string
+ * Return: The number of words or
+ * any characters separated by spaces
  */
 int count_words(char *str)
 {
@@ -31,20 +49,20 @@ int count_words(char *str)
 }
 
 /**
- * _strlen - returns the length of a string
- *
- * @s: string type char
- * Return: returns the lenght of a string
+ * free_grid - frees a 2 dimensional grid
+ * @grid: grid to free
+ * @height: height of grid
+ * Return: void
  */
-int _strlen(char *s)
+void free_gridc(char **grid, int height)
 {
-	int len;
+	int i;
 
-	len = 0;
-	while (*s++ != '\0')
-		len++;
+	i = 0;
+	while (i < height)
+		free(grid[i++]);
 
-	return (len);
+	free(grid);
 }
 
 
@@ -57,14 +75,14 @@ int _strlen(char *s)
  */
 char **strtow(char *str)
 {
-	int i = 0, j = 0, k = 0, temp_len = 0;
+	int i, j = 0, k, temp_len = 0;
 	char **arr;
 
 	if (str == NULL || _strlen(str) == 0)
 		return (NULL);
 	if (count_words(str) == 0)
 		return (NULL);
-	arr = malloc((count_words(str) + 1) * sizeof(char *));
+	arr = (char **)malloc((count_words(str) + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
 
@@ -75,12 +93,10 @@ char **strtow(char *str)
 			for (k = i, temp_len = 0; str[k] != '\0' && str[k] != ' '; k++)
 				temp_len++;
 
-			arr[j] = malloc(sizeof(char) * (temp_len + 1));
+			arr[j] = (char *)malloc((temp_len + 1) * sizeof(char));
 			if (arr[j] == NULL)
 			{
-				free(arr);
-				for (k = 0; k <= j; k++)
-					free(arr[k]);
+				free_gridc(arr, k);
 				return (NULL);
 			}
 			k = 0;
