@@ -57,6 +57,8 @@ void print_number(int *mul, int len1, int len2)
 
 	for (i = 0; mul[i] == 0; i++)
 		;
+	if (i >= len1 + len2 + 1)
+		_putchar('0');
 	while (i < (len1 + len2))
 		_putchar(mul[i++] + '0');
 	_putchar('\n');
