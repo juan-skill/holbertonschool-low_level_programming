@@ -8,12 +8,12 @@
  * @age: age of the dog
  * @owner: owner of the dog
  */
-struct dog
+typdef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+}dog_t;
 
 int _putchar(char);
 void init_dog(struct dog *, char *, float, char *);
