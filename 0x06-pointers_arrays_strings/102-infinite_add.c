@@ -18,14 +18,14 @@ int _strlen(char *str)
 }
 
 /**
- * _ads_two_digits - returns the adds of two numbers
+ * _add_two_digits - returns the adds of two numbers
  *
  * @n1: number one
  * @n2: number two
  * @n3: number three
  * Return: returns the sum of three
  */
-int _ads_two_digits(int n1, int n2, int n3)
+int _add_two_digits(int n1, int n2, int n3)
 {
 	return (n1 + n2 + n3);
 }
@@ -41,15 +41,17 @@ int _ads_two_digits(int n1, int n2, int n3)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, temp, remainder, one, two;
+	int i, j, temp, remainder, one, two, new_size_r;
 
 	i = j = temp = remainder = 0;
 	r[size_r - 1] = '\0';
-	size_r = size_r - 2;
+
+	new_size_r = size_r - 2;
+
 	i = _strlen(n1) - 1;
 	j = _strlen(n2) - 1;
 
-	for (; size_r >= 0 && (i >= 0 || j >= 0); i--, j--)
+	for (; new_size_r >= 0 && (i >= 0 || j >= 0); i--, j--)
 	{
 		if (i < 0)
 			one = '0' - '0';
@@ -60,22 +62,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 			two = n2[j] - '0';
 
-		temp = _ads_two_digits(one, two, remainder);
-		if (temp < 9 ||  _ads_two_digits(one, two, 0) < 9)
+		temp = _add_two_digits(one, two, remainder);
+		if (temp < 9 ||  _add_two_digits(one, two, 0) < 9)
 			remainder = 0;
 		if (temp > 9)
 			remainder = temp / 10;
 		temp %= 10;
-		r[size_r--] = temp + '0';
+		r[new_size_r--] = temp + '0';
 	}
-	if (remainder >= 1)
-		r[size_r] = remainder + '0';
-	else
-		r[size_r] = 1;
-
-	if ((size_r < i || size_r < j) || (size_r < 0 && remainder >= 1))
+	if ((new_size_r < i || new_size_r < j) || (new_size_r < 0 && remainder >= 1))
 		return (0);
 
-	size_r += remainder ? 0 : 1;
-	return (r + size_r);
+	if (remainder >= 1)
+		r[new_size_r] = remainder + '0';
+	new_size_r += remainder ? 0 : 1;
+
+	return (r + new_size_r);
 }
