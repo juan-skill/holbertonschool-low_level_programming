@@ -73,7 +73,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	if (remainder >= 1)
 		r[size_r] = remainder + '0';
-	size_r += remainder ? 0 : 1;
 
 	return (r + size_r);
 }
