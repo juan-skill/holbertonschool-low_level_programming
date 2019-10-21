@@ -41,17 +41,15 @@ int _add_two_digits(int n1, int n2, int n3)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, temp, remainder, one, two, new_size_r;
+	int i, j, temp, remainder, one, two;
 
 	i = j = temp = remainder = 0;
 	r[size_r - 1] = '\0';
-
-	new_size_r = size_r - 2;
-
+	size_r = size_r - 2;
 	i = _strlen(n1) - 1;
 	j = _strlen(n2) - 1;
 
-	for (; new_size_r >= 0 && (i >= 0 || j >= 0); i--, j--)
+	for (; size_r >= 0 && (i >= 0 || j >= 0); i--, j--)
 	{
 		if (i < 0)
 			one = '0' - '0';
@@ -68,14 +66,14 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (temp > 9)
 			remainder = temp / 10;
 		temp %= 10;
-		r[new_size_r--] = temp + '0';
+		r[size_r--] = temp + '0';
 	}
-	if ((new_size_r < i || new_size_r < j) || (new_size_r < 0 && remainder >= 1))
+	if ((size_r < i || size_r < j) || (size_r < 0 && remainder >= 1))
 		return (0);
 
 	if (remainder >= 1)
-		r[new_size_r] = remainder + '0';
-	new_size_r += remainder ? 0 : 1;
+		r[size_r] = remainder + '0';
+	size_r += remainder ? 0 : 1;
 
-	return (r + new_size_r);
+	return (r + size_r);
 }
