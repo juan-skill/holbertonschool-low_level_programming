@@ -31,7 +31,8 @@ int main(int ac, char *av[])
 	/*we get the address of main function*/
 	pf_main = (char *)&main;
 
-	count = 0; bytes--;
+	count = 0;
+	bytes--;
 	while (count < bytes)
 		printf("%02hhx ", pf_main[count++]);
 
