@@ -5,6 +5,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int _putchar(char c);
+int sum_them_all(const unsigned int n, ...);
+void print_numbers(const char *separator, const unsigned int n, ...);
+void print_strings(const char *separator, const unsigned int n, ...);
+void print_all(const char * const format, ...);
+void _print_char(va_list valist);
+void _print_int(va_list valist);
+void _print_string(va_list valist);
+void _print_float(va_list valist);
+
 /**
  * struct format_s - stuct to get format
  *
@@ -17,15 +27,5 @@ typedef struct format_s
 	char c;
 	void (*p_f)(va_list);
 } forma_t;
-
-int _putchar(char c);
-int sum_them_all(const unsigned int n, ...);
-void print_numbers(const char *separator, const unsigned int n, ...);
-void print_strings(const char *separator, const unsigned int n, ...);
-void print_all(const char * const format, ...);
-void _print_char(va_list valist);
-void _print_int(va_list valist);
-void _print_string(va_list valist);
-void _print_float(va_list valist);
 
 #endif
