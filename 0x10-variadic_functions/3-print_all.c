@@ -28,10 +28,12 @@ void _print_string(va_list valist)
 
 	s = va_arg(valist, char *);
 
-	if (s != NULL)
-		printf("%s", s);
-	else
+	if (s == NULL)
+	{
 		printf("(nil)");
+		return;
+	}
+	printf("%s", s);
 }
 
 /**
@@ -59,10 +61,9 @@ void print_all(const char * const format, ...)
 		{'\0', NULL}
 	};
 	int i, j;
-	char *separator;
+	char *separator = "";
 	va_list valist;
 
-	separator = "";
 	va_start(valist, format);
 
 	i = 0;
@@ -81,7 +82,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	va_end(valist);
 	printf("\n");
+	va_end(valist);
 
 }
