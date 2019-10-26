@@ -1,5 +1,4 @@
- #include "variadic_functions.h"
-
+#include "variadic_functions.h"
 
 /**
  * print_strings - prints strings
@@ -20,7 +19,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_start(valist, n);
 	i = 0;
 	while (i < n)
-        {
+	{
 		t_str = va_arg(valist, char *);
 		if (t_str != NULL)
 			printf("%s", t_str);
