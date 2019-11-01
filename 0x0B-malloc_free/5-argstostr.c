@@ -20,6 +20,7 @@ int _strlen(char *s)
 }
 
 
+
 /**
  * _strcat - concatenates two strings
  *
@@ -31,13 +32,16 @@ char *_strcat(char *dest, char *src)
 {
 	char *s;
 
-	s = dest + _strlen(dest);
+	s = dest;
+	/*  dest start in 0  +  *(s + i-th) */
+	/* i-th position at the end */
+	dest += _strlen(dest);
 
 	while (*src != '\0')
-		*s++ = *src++;
-	*s = '\0';
+		*dest++ = *src++;
+	*dest = '\0';
 
-	return (dest);
+	return (s);
 }
 
 
@@ -57,18 +61,24 @@ char *argstostr(int ac, char **av)
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
+	length = 1;
 	for (i = 0; i < ac; i++)
-		length += _strlen(av[i]);
+		length += _strlen(av[i] + 1);
 
 	str = malloc(length * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 
+	/*concatenate the string*/
 	for (i = 0; i < ac; i++)
 	{
 		_strcat(str, av[i]);
 		_strcat(str, "\n");
 	}
+
+	/*if (!str) */
+	if (str == NULL)
+		return (NULL);
 
 	return (str);
 }
