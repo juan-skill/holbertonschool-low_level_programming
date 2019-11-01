@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _strcpy - opies the string pointed to by src,
+ * _strcpy - copies the string pointed to by src,
  * to the buffer pointed to by dest.
  *
  * @src: source string to copy
@@ -12,20 +12,14 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
-	char *copy_p;
+	char *s;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = src[i];
+	s = dest;
+	while (*src != '\0')
+		*dest++ = *src++;
+	*dest = '\0';
 
-	copy_p = dest;
-
-	return (copy_p);
+	return (s);
 }
 
 
@@ -58,10 +52,13 @@ char *_strdup(char *str)
 {
 	char *s_dup;
 
+	s_dup = NULL;
+
 	if (str == NULL)
 		return (NULL);
 
 	s_dup = malloc(1 + _strlen(str));
+	/* if (!s_dup) */
 	if (s_dup == NULL)
 		return (NULL);
 
