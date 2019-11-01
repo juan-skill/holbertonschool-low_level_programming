@@ -29,13 +29,13 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	int i, j;
+	char *s;
 
-	i = _strlen(dest);
-	j = 0;
-	while (src[j] != '\0')
-		dest[i++] = src[j++];
-	dest[i] = '\0';
+	s = dest + _strlen(dest);
+
+	while (*src != '\0')
+		*s++ = *src++;
+	*s = '\0';
 
 	return (dest);
 }
@@ -58,7 +58,7 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
-		length += _strlen(av[i]) + 1;
+		length += _strlen(av[i]);
 
 	str = malloc(length * sizeof(char));
 	if (str == NULL)
