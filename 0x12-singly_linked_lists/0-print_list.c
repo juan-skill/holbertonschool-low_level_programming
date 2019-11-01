@@ -7,21 +7,21 @@
  *
  * Return: The number of nodes
  */
-size_t print_list(const list_t *header)
+size_t print_list(const list_t *head)
 {
-	unsigned int i = 0;
+	size_t i = 0;
 
-	if (!header)
+	if (head == NULL)
 		return (0);
 
-	while (header != NULL)
+	while (head != NULL)
 	{
-		if (h->str != NULL)
-			printf("[%u] %s\n", header->len, header->str);
+		if (head->str != NULL)
+			printf("[%u] %s\n", head->len, head->str);
 		else
 			printf("[0] (nil)\n");
 
-		header = header->next;
+		head = head->next;
 		i++;
 	}
 
