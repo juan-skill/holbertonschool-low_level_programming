@@ -11,10 +11,10 @@ size_t print_list(const list_t *header)
 {
 	unsigned int i = 0;
 
-	if (header != NULL)
+	if (!header)
 		return (0);
 
-	while (h)
+	while (header != NULL)
 	{
 		if (h->str != NULL)
 			printf("[%u] %s\n", header->len, header->str);
