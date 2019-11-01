@@ -3,27 +3,33 @@
 
 /**
  * print_list - prints all the elements of a list
- * @header: a pointerr to the list
+ * @head: a pointerr to the list
  *
  * Return: The number of nodes
  */
 size_t print_list(const list_t *head)
 {
+	/*counter variable*/
 	size_t i = 0;
+	const list_t *tmp;
 
-	if (head == NULL)
+	/*Do not change the head reference.*/
+	tmp = head;
+
+	/* if (!tmp) */
+	if (tmp == NULL)
 		return (0);
 
-	while (head != NULL)
+	/* while (tmp) */
+	while (tmp != NULL)
 	{
-		if (head->str != NULL)
-			printf("[%u] %s\n", head->len, head->str);
+		if (tmp->str != NULL)
+			printf("[%u] %s\n", tmp->len, tmp->str);
 		else
 			printf("[0] (nil)\n");
 
-		head = head->next;
+		tmp = tmp->next;
 		i++;
 	}
-
 	return (i);
 }
