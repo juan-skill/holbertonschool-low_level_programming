@@ -27,23 +27,16 @@ int _strlen(char *s)
  * @dest: buffer to copy string into
  * Return: returns pointer to copied string
  */
-
 char *_strcpy(char *dest, char *src)
 {
-	int i;
-	char *copy_p;
+	char *s;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = src[i];
+	s = dest;
+	while (*src != '\0')
+		*dest++ = *src++;
+	*dest = '\0';
 
-	copy_p = dest;
-
-	return (copy_p);
+	return (s);
 }
 
 /**
@@ -63,6 +56,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_dog == NULL)
 		return (NULL);
 
+	/*new_name = malloc(strlen(name) * sizeof(char))*/
 	new_name = malloc(_strlen(name) + 1);
 	if (new_name == NULL)
 	{
