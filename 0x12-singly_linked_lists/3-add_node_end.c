@@ -20,7 +20,7 @@ int _strlen(const char *s)
 
 /**
  * add_node_end - adds a new node in the end of a list
- * 
+ *
  * @head: pointer to the list.
  * @str: string to add to the new node.
  * Return: the address of a new node.
