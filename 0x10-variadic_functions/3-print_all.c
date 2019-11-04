@@ -1,63 +1,88 @@
 #include "variadic_functions.h"
 
 /**
- * _is_format - checks if a char is it
- *
- * @format_i: char to check
- * Return: a boolean value, 1 if is true, otherwise 0
+ * _print_char - print char type element from va_list
+ * @valist: va_list passed to function
  */
-int _is_format(const char format_i)
+void _print_char(va_list valist)
 {
-	if ((format_i == 'c' || format_i == 'i' ||
-	     format_i == 'f' || format_i == 's'))
-		return (1);
-	return (0);
+	printf("%c", va_arg(valist, int));
 }
 
 /**
- * print_all - prints all arguments passed to it
- * @format: list of argument types
- *
- * Return: void
+ * _print_int - print int type element from va_list
+ * @valist: va_list passed to function
+ */
+void _print_int(va_list valist)
+{
+	printf("%d", va_arg(valist, int));
+}
+
+/**
+ * _print_string- print string element from va_list
+ * @valist: va_list passed to function
+ */
+void _print_string(va_list valist)
+{
+	char *s;
+
+	s = va_arg(valist, char *);
+
+	if (s == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", s);
+}
+
+/**
+ * _print_float - print float type element from va_list
+ * @valist: va_list passed to function
+ */
+void _print_float(va_list valist)
+{
+	printf("%f", va_arg(valist, double));
+}
+
+
+/**
+ * print_all - print all passsed if char, int, float, or string
+ * @format: string of formats to use and print
  */
 void print_all(const char * const format, ...)
 {
-	va_list va_argu;
-	char *t_str;
-	int i;
-	char format_i;
 
-	va_start(va_argu, format);
-	while (format == NULL)
-		return;
+	forma_t _formates[] = {
+		{'c', _print_char},
+		{'f', _print_float},
+		{'i', _print_int},
+		{'s', _print_string},
+		{'\0', NULL}
+	};
+	int i, j;
+	char *separator = "";
+	va_list valist;
+
+	va_start(valist, format);
 
 	i = 0;
-	format_i = format[i];
-	while (format_i != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
-		format_i = format[i];
-		switch (format_i)
+		j = 0;
+		while (_formates[j].c != '\0')
 		{
-		case 'c':
-			printf("%c", (char) va_arg(va_argu, int));
-			break;
-		case 'i':
-			printf("%i", va_arg(va_argu, int));
-			break;
-		case 'f':
-			printf("%f", (float) va_arg(va_argu, double));
-			break;
-		case 's':
-			t_str = va_arg(va_argu, char *);
-			if (t_str != NULL)
-				printf("%s", t_str);
-			else
-				printf("(nil)");
+			if (format[i] == _formates[j].c)
+			{
+				printf("%s", separator);
+				_formates[j].p_f(valist);
+				separator = ", ";
+			}
+			j++;
 		}
-		if (_is_format(format_i) && format[(i + 1)] != '\0')
-			printf(", ");
 		i++;
 	}
-
 	printf("\n");
+	va_end(valist);
+
 }
