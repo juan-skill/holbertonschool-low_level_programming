@@ -1,21 +1,68 @@
 #include "lists.h"
 
 /**
- * _strlen - returns the length of string
+ * _strcpy - copies the string pointed to by src,
+ * to the buffer pointed to by dest.
  *
- * @s: string to count
- * Return: the length of the string
+ * @src: source string to copy
+ * @dest: buffer to copy string into
+ * Return: returns pointer to copied string
+ */
+char *_strcpy(char *dest, const char *src)
+{
+	char *s;
+
+	s = dest;
+	while (*src != '\0')
+		*dest++ = *src++;
+	*dest = '\0';
+
+	return (s);
+}
+
+
+/**
+ * _strlen - returns the length of a string
+ *
+ * @s: string type char
+ * Return: returns the lenght of a string
  */
 int _strlen(const char *s)
 {
-	int len = 0;
+	int len;
 
+	len = 0;
 	while (*s++ != '\0')
-	{
 		len++;
-	}
 
 	return (len);
+}
+
+
+
+/**
+ * _strdup - duplicates a string to a newly allocated space *
+ *
+ * @str: string to duplicate
+ * Return: returns pointer to duplicated string
+ */
+char *_strdup(const char *str)
+{
+	char *s_dup;
+
+	s_dup = NULL;
+
+	if (str == NULL)
+		return (NULL);
+
+	s_dup = malloc(1 + _strlen(str));
+	/* if (!s_dup) */
+	if (s_dup == NULL)
+		return (NULL);
+
+	s_dup = _strcpy(s_dup, str);
+
+	return (s_dup);
 }
 
 /**
@@ -28,26 +75,33 @@ int _strlen(const char *s)
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *tmp;
-	list_t *new = malloc(sizeof(list_t));
+	list_t *new;
 
+	tmp = new = NULL;
+
+	new = malloc(sizeof(list_t));
 	if (new == 0)
 		return (0);
 
-	tmp = *head;
-	new->str = strdup(str);
+	new->str = _strdup(str);
 	new->len = _strlen(str);
-	new->next = NULL;
 
-	if (tmp == NULL)
+	/*if (!*head)*/
+	if (*head == NULL)
 	{
+		/*new->next = NULL;*/
 		*head = new;
 	}
 	else
 	{
+		tmp = *head;
+		/*while tmp->next != NULL*/
 		while (tmp->next)
-		tmp = tmp->next;
-
-	tmp->next = new;
+			tmp = tmp->next;
+		tmp->next = new;
+                /*new->next = NULL;*/
 	}
-	return (new);
+	new->next = NULL;
+
+	return (*head);
 }
