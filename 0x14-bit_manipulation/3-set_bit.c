@@ -11,10 +11,6 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	long int shift = 1;
 
-	/*if (!n)*/
-	if (n == 0)
-		return (-1);
-
 	if (!(index > (sizeof(long int) * 8)))
 	{
 		shift = shift << index;
