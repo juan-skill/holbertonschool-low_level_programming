@@ -1,12 +1,21 @@
 #include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
 /**
- *main - write text to stdout (Standar Output)
+ * main - write text to stdout (Standar Output)
  *
- *Return: return 1
+ * Return: return 1
  */
 int main(void)
 {
-	write(1, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+	char *str = NULL;
+	int length = 0;
+
+	str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	length = strlen(str);
+
+	write(1, str, length);
+
 	return (1);
 }
