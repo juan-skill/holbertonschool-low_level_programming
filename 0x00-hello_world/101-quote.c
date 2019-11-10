@@ -15,7 +15,7 @@ int main(void)
 	str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 	length = strlen(str);
 
-	write(2, str, length);
+	write(1, str, length);
 
 	return (1);
 }
