@@ -29,7 +29,7 @@ int create_file(const char *filename, char *text_content)
 	while (*tmp++ != '\0')
 		;
 
-	sys_write = write(file_descriptor, text_content, (tmp - text_content));
+	sys_write = write(file_descriptor, text_content, (tmp - text_content) - 1);
 	if (sys_write == -1)
 		return (-1);
 
