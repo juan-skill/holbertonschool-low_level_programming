@@ -10,11 +10,11 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_f, file_t, sys_read, status;
+	int file_f, file_to, sys_read, status;
 	char buf[1024];
 
 	status = 1;
-	file_f = file_t = sys_read = 0;
+	file_f = file_to = sys_read = 0;
 
 	if (argc != 3)
 		dprintf(SE, "Usage: cp file_from file_to\n"), exit(97);
@@ -25,18 +25,18 @@ int main(int argc, char *argv[])
 
 	file_f = open(argv[1], O_RDONLY);
 	if (file_f == -1)
-		dprintf(SE, "Error: Can't read from file %s\n", av[1]), exit(98);
-	file_t = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
+		dprintf(SE, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (file_t == -1)
-		dprintf(SE, "Error: Can't read from file %s\n", av[1]), exit(98);
-	sys_read = read(file_f, buf, BUFSIZE);
+	if (file_to == -1)
+		dprintf(SE, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	sys_read = read(file_f, buf, 1024);
 	if (sys_read == -1)
 		dprintf(SE, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
 	while (sys_read != 0)
 	{
-		status = write(file_t, buf, sys_read);
+		status = write(file_to, buf, sys_read);
 		if (status == -1 || status != sys_read)
 			dprintf(SE, "Error: Can't write to %s\n", argv[2]), exit(99);
 		sys_read = read(file_f, buf, 1024);
@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
 	status = close(file_f);
 	if (status == -1)
 		dprintf(SE, "Error: Can't close fd %d\n", file_f), exit(100);
-	status = close(file_t);
+	status = close(file_to);
 	if (status == -1)
-		dprintf(SE, "Error: Can't close fd %d\n", file_t), exit(100);
+		dprintf(SE, "Error: Can't close fd %d\n", file_to), exit(100);
 	return (0);
 }
