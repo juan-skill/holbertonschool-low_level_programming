@@ -44,12 +44,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	length = dlistint_len(*h);
 	if (idx > length)
 		return (NULL);
-
 	n_node = (dlistint_t *)malloc(sizeof(dlistint_t));
 	if (n_node == NULL)
 		return (NULL);
 	n_node->n = n, n_node->prev = NULL, n_node->next = NULL;
-	count = 1;
+
+	count = 0;
 	tmp = *h;
 	if (idx != 0)
 		idx -= 1;
