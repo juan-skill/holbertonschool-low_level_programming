@@ -1,0 +1,3 @@
+# build  an excutable named holberton from m.h, main.c, holberton.h
+all: m.h main.c holberton.c
+	gcc -Wall -Werror -Wextra -pedantic main.c holberton.c -o holberton
