@@ -14,14 +14,12 @@ size_t print_listint_safe(const listint_t *head)
 
 	tmp2 = tmp = NULL;
 
-	/*if (!head)*/
 	if (head == NULL)
 		return (0);
 
 	tmp = head;
 	flag = i = 0;      /* count of nodes */
 
-	/*while (tmp)*/
 	while (tmp != NULL)
 	{
 		printf("[%p] %d\n", (void *)tmp, tmp->n);
@@ -36,7 +34,7 @@ size_t print_listint_safe(const listint_t *head)
 			{
 				printf("-> [%p] %d\n", (void *)tmp2, tmp2->n);
 				flag = 1;
-				break; /* return (i); *\/ */
+				break;
 			}
 			tmp2 = tmp2->next;
 		}
