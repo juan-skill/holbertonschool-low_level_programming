@@ -22,9 +22,16 @@ size_t print_listint_safe(const listint_t *head)
 
 		if (head < head->next)
 		{
+			/* List of two nodes. The second node pointing to the first one (loop) */
 			/* printf(" head < head->next [%p] %d > [%p] %d\n", (void *)head, head->n, (void *)head->next, head->next->n); */
 			/* printf(" head %ld > head->next %ld       head = head->next\n", i, i + 1); */
 			head = head->next;
+			printf("-> [%p] %d\n", (void *)head, head->n);
+			break;
+		}
+		else if (head - head->next == 0)
+		{
+			/* List of one single node pointing to itself */
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			break;
 		}
